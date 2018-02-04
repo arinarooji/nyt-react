@@ -12,21 +12,21 @@ const Search = props => (
                     <div className="card-body">
                         <form>
                             <div className="form-group">
-                                <label for="search">Topic</label>
+                                <label htmlFor="search">Topic</label>
                                 <input type="text" className="form-control" id="search-term"/>
                             </div>
                             <div className="form-group">
-                                <label for="start-year">Start Year (Optional)</label>
+                                <label htmlFor="start-year">Start Year (Optional)</label>
                                 <input type="text" className="form-control" id="start-year"/>
                             </div>
                             <div className="form-group">
-                                <label for="end-year">End Year (Optional)</label>
+                                <label htmlFor="end-year">End Year (Optional)</label>
                                 <input type="text" className="form-control" id="end-year"/>
                             </div>
                         </form>
                     </div>
                     <div className="card-footer">
-                        <button type="submit" className="btn btn-primary" id="run-search"><i className="fa fa-search"></i> Search</button>
+                        {props.children}
                     </div>
                 </div>
             </div>
