@@ -1,32 +1,43 @@
-const axios = require("axios");
 const db = require("../models");
-
+ 
 // Defining methods for the articleController
-
-// findAll searches the NYT API and returns only the entries we haven't already saved
 module.exports = {
   findAll: function(req, res) {
-    const params = Object.assign(
-      { api_key: "9b3adf57854f4a19b7b5782cdd6e427a" },
-      req.query
-    );
-    axios
-      .get("https://api.nytimes.com/svc/search/v2/articlesearch.json", {
-        params
-      })
-      .then(response => {
-        db.Article
-          .find()
-          .then(dbArticles =>
+    db.Article
+      .find(req.query)
+      .sort({ date: -1 })
    
-            response.data.response.docs.filter(article =>
-              dbArticles.every(
-                dbArticle => dbArticle._id.toString() !== article._id
-              )
-            )
-          )
-          .then(articles => res.json(articles))
-          .catch(err => res.status(422).json(err));
-      });
+      .then(dbArticle => res.json(dbArticle))
+      .catch(err => res.status(422).json(err));
+  },
+  findById: function(req, res) {
+    db.Article
+      .findById(req.params.id)
+      .then(dbArticle => res.json(dbArticle))
+      .catch(err => res.status(422).json(err));
+  },
+  create: function(req, res) {
+    const article = {
+      _id: req.body._id,
+      title: req.body.headline.main,
+      url: req.body.web_url
+    };
+    db.Article
+      .create(article)
+      .then(dbArticle => res.json(dbArticle))
+      .catch(err => res.status(422).json(err));
+  },
+  update: function(req, res) {
+    db.Article
+      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .then(dbArticle => res.json(dbArticle))
+      .catch(err => res.status(422).json(err));
+  },
+  remove: function(req, res) {
+    db.Article
+      .findById({ _id: req.params.id })
+      .then(dbArticle => dbArticle.remove())
+      .then(dbArticle => res.json(dbArticle))
+      .catch(err => res.status(422).json(err));
   }
 };
