@@ -1,12 +1,10 @@
-import React from 'react';
+import React from "react";
+//import "./Jumbotron.css";
 
-const Jumbotron = props => (
-    <div>
-        <div className="jumbotron bg-primary">
-            <h1 className="text-center"><strong><i className="far fa-newspaper"></i>{props.name}</strong></h1>
-            <h2 className="text-center">{props.edition}</h2>
-        </div>
-    </div>
-);
+const Jumbotron = ({ children }) =>
+   
+  <div className="jumbotron">
+    {children}
+  </div>;
 
 export default Jumbotron;

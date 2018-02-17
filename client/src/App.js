@@ -1,30 +1,21 @@
-import React, { Component } from "react";
-import Wrapper from "./components/Wrapper";
-import Jumbotron from "./components/Jumbotron";
-import Search from "./components/Search";
-import SearchBtn from "./components/SearchBtn";
-import Results from "./components/Results";
-import Saved from "./components/Saved";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./pages/Home";
+import Saved from "./pages/Saved";
+import NoMatch from "./pages/NoMatch";
+   
+import Nav from "./components/Nav";
 
-class App extends Component {
-    
-    handleClick = (event) => {
-        console.log(event);
-    };
-
-    render() {
-        return (
-            <Wrapper>
-                <Jumbotron name={"New York Times Search"} edition={"React Edition"}/>
-                <Search name={"Search Options"}>
-                    <SearchBtn onClick={this.handleClick}/>
-                </Search>
-                <Results />
-                <Saved />
-            </Wrapper>
-        );
-    };
-    
-}
+const App = () =>
+  <Router>
+    <div>
+      <Nav />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/saved" component={Saved} />
+        <Route component={NoMatch} />
+      </Switch>
+    </div>
+  </Router>;
 
 export default App;

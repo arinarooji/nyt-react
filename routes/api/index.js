@@ -5,7 +5,6 @@ const nytRoutes = require("./nyt");
    
 // NYT routes
 router.use("/articles", articleRoutes);
-
 router.use("/nyt", nytRoutes);
 
 module.exports = router;
