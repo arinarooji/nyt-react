@@ -9,17 +9,17 @@ const Nav = () => (
       <div className="navbar-header">
         <button
           type="button"
-          className="navbar-toggle"
+          className="navbar-toggle btn btn-outline-primary mr-2"
           data-toggle="collapse"
           data-target=".navbar-ex1-collapse"
         >
           <span className="sr-only">Toggle navigation</span>
-          <span className="icon-bar" />
+          <span className="icon-bar fas fa-newspaper" />
           <span className="icon-bar" />
           <span className="icon-bar" />
         </button>
         <Link className="navbar-brand" to="/">
-          NYT-React
+          New York Times
         </Link>
       </div>
       <div className="collapse navbar-collapse navbar-ex1-collapse">

@@ -3,7 +3,7 @@ import React from "react";
 
 const Jumbotron = ({ children }) =>
    
-  <div className="jumbotron">
+  <div className="jumbotron bg-primary">
     {children}
   </div>;
 

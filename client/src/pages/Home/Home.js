@@ -58,16 +58,16 @@ class Home extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1 className="text-center">
-                <strong>(ReactJS) New York Times Article Scrubber</strong>
+              <h1 className="text-center text-white">
+                <strong>New York Times Search: React Edition</strong>
               </h1>
-              <h2 className="text-center">
-                Search for and save articles of interest.
+              <h2 className="text-center text-white">
+                Find articles and save them for later!
               </h2>
             </Jumbotron>
           </Col>
           <Col size="md-12">
-            <Panel title="Query" icon="newspaper-o">
+            <Panel title="Query" icon="search">
               <Form
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
@@ -80,7 +80,7 @@ class Home extends Component {
         </Row>
         <Row>
           <Col size="md-12">
-            <Panel title="Results">
+            <Panel title="Results" icon="list">
               {this.state.articles.length ? (
                 <List>
                   {this.state.articles.map(article => (

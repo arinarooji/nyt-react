@@ -5,8 +5,7 @@ const Footer = () => (
   <footer>
     <hr />
     <p className="pull-right">
-      <i className="fa fa-github" aria-hidden="true" /> Proudly built using
-      React.js
+      <i className="far fa-newspaper" aria-hidden="true" /> New York Times Search: React Edition
     </p>
   </footer>
 );
